@@ -6,6 +6,8 @@ import { HomeComponent } from '../home/home.component';
 import { AboutComponent } from '../about/about.component';
 import { ContactComponent } from '../contact/contact.component';
 import { FavoritesComponent } from '../favorites/favorites.component';
+import { ExploreComponent } from '../explore/explore.component';
+import { ExploredetailComponent } from '../exploredetail/exploredetail.component';
 
 export const routes: Routes = [
   { path: 'home',  component: HomeComponent },
@@ -14,6 +16,7 @@ export const routes: Routes = [
   { path: 'favorites',     component: FavoritesComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'contactus',     component: ContactComponent },
-  { path: 'dishdetail/:id',     component: DishdetailComponent }
-
+  { path: 'dishdetail/:id',     component: DishdetailComponent },
+  { path: 'explore', component: ExploreComponent},
+  { path: 'expore/category', component: ExploredetailComponent}
 ];

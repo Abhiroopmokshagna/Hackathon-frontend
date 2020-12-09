@@ -5,8 +5,8 @@
      <div>
       <h3>Featured</h3>
       <hr>
-    </div>
-    </div>
+     </div>
+</div>
 
 <div class="container"
      fxLayout="row"
@@ -36,46 +36,49 @@
   <h4>{{projectErrMess}}</h4>
 </div>
 
-<mat-card *ngIf="promotion" fxFlex [@expand]>
+<mat-card *ngIf="member" fxFlex [@expand]>
   <mat-card-header>
     <div mat-card-avatar></div>
     <mat-card-title>
-      <h3>{{promotion.name | uppercase}}</h3>
+      <h3>{{member.name | uppercase}}</h3>
     </mat-card-title>
   </mat-card-header>
-  <img mat-card-image src="{{ baseURL + promotion.image }}" alt={{promotion.name}}>
+  <img mat-card-image src="{{ baseURL + member.image}}" alt={{member.name}}>
   <mat-card-content>
-    <p>{{promotion.description}}
+    <p>{{member.description}}
     </p>
   </mat-card-content>
 </mat-card>
-<div [hidden]="promotion || promoErrMess">
+<div [hidden]="member || memberErrMess">
     <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
 </div>
-<div *ngIf="promoErrMess">
+<div *ngIf="memberErrMess">
   <h2>Error</h2>
-  <h4>{{promoErrMess}}</h4>
+  <h4>{{memberErrMess}}</h4>
 </div>
 
-<mat-card *ngIf="leader" fxFlex [@expand]>
+<mat-card *ngIf="paper" fxFlex [@expand]>
   <mat-card-header>
     <div mat-card-avatar></div>
     <mat-card-title>
-      <h3>{{leader.name | uppercase}} {{leader.abbr}}</h3>
+      <h3>{{paper.name | uppercase}}</h3>
     </mat-card-title>
   </mat-card-header>
-  <img mat-card-image src="{{ baseURL + leader.image }}" alt={{leader.name}}>
+  <img mat-card-image src="{{ baseURL + paper.image}}" alt={{paper.name}}>
   <mat-card-content>
-    <p>{{leader.designation}}</p>
-    <p>{{leader.description}}
+    <p>{{paper.description}}
     </p>
   </mat-card-content>
 </mat-card>
-<div [hidden]="leader || leaderErrMess">
+<div [hidden]="paper || paperErrMess">
     <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
 </div>
-<div *ngIf="leaderErrMess">
+<div *ngIf="paperErrMess">
   <h2>Error</h2>
-  <h4>{{leaderErrMess}}</h4>
+  <h4>{{paperErrMess}}</h4>
 </div>
+
+
+
+
 </div>
