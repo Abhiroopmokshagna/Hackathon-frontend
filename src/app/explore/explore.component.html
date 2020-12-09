@@ -1,16 +1,18 @@
 <div class="container"
+     fxLayout="row"
+     fxLayoutAlign.gt-md="space-around center"
+     fxLayoutGap="10px">
+     <div>
+      <h3>Explore</h3>
+      <hr>
+     </div>
+</div>
+<div class="container"
      fxLayout="column"
      fxLayoutGap="10px">
 
   <div fxFlex>
-    <div>
-      <h3>Explore</h3>
-      <hr>
-    </div>
-  </div>
-
-  <div fxFlex *ngIf="categories" [@expand]>
-    <mat-grid-list cols="2" rowHeight="200px">
+    <mat-grid-list *ngIf="categories" cols="2" rowHeight="200px">
       <mat-grid-tile *ngFor="let category of categories" [routerLink]="['/exploredetail', category._id]" appHighlight>
         <img height="200px" src="{{ baseURL + category.image}}" alt={{category.name}}>
         <mat-grid-tile-footer>
@@ -20,7 +22,7 @@
     </mat-grid-list>
   </div>
   <div [hidden]="categories || errMess">
-      <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+    <mat-spinner></mat-spinner><h4 matLine>Please Log in . . .</h4>
   </div>
   <div *ngIf="errMess">
     <h2>Error</h2>

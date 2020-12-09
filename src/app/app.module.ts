@@ -51,6 +51,10 @@ import { FavoritesComponent } from './favorites/favorites.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { ExploreComponent } from './explore/explore.component';
 import { ExploredetailComponent } from './exploredetail/exploredetail.component';
+import { MemberdetailComponent } from './memberdetail/memberdetail.component';
+import { ProjectdetailComponent } from './projectdetail/projectdetail.component';
+import { PaperdetailComponent } from './paperdetail/paperdetail.component';
+import { PatentdetailComponent } from './patentdetail/patentdetail.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +70,11 @@ import { ExploredetailComponent } from './exploredetail/exploredetail.component'
     HighlightDirective,
     FavoritesComponent,
     ExploreComponent,
-    ExploredetailComponent
+    ExploredetailComponent,
+    MemberdetailComponent,
+    ProjectdetailComponent,
+    PaperdetailComponent,
+    PatentdetailComponent
   ],
   imports: [
     BrowserModule,

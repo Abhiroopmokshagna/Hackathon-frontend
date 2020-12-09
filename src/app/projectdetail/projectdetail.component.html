@@ -1,0 +1,64 @@
+<div class="container"
+    fxLayout="row wrap"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign.gt-md="space-around center"
+    fxLayoutGap="10px" 
+    fxLayoutGap.xs="0">
+
+  <div fxFlex="100">
+    <div>
+      <h3 *ngIf="project">{{project.name | uppercase}}</h3>
+      <hr>
+    </div>
+  </div>
+
+
+
+<div class="container" rowHeight="200px" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px">
+  <div *ngIf="project" [@visibility]="visibility" [@expand]>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h3>{{project.name | uppercase}}</h3>
+        </mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{ baseURL + project.image}}">
+      <mat-card-content>
+        <p>{{project.description}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
+<div class="container" rowHeight="200px" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px">
+
+  <div *ngIf="project.members" [@visibility]="visibility" [@expand]>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h3>Authors ({{project.members.length}})</h3>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let members of project.members" [routerLink]="['/memberdetail', members.member._id]">
+              <img mat-list-avatar src="{{ baseURL + members.member.image }}">
+              <h4 matLine> {{members.member.name}}</h4>
+              <span> {{members.member.designation}} </span>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div *ngIf="errMess">
+    <h2>Error</h2>
+    <h4>{{errMess}}</h4>
+  </div>
+</div>
+
+
+</div>

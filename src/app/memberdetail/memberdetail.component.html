@@ -8,7 +8,7 @@
 
   <div fxFlex="100">
     <div>
-      <h3 *ngIf="category">{{category.name | uppercase}}</h3>
+      <h3 *ngIf="member">{{member.name | uppercase}}</h3>
       <hr>
     </div>
   </div>
@@ -16,65 +16,35 @@
 
 
 <div class="container" rowHeight="200px" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px">
-  <div *ngIf="category" [@visibility]="visibility" [@expand]>
+  <div *ngIf="member" [@visibility]="visibility" [@expand]>
     <mat-card>
       <mat-card-header>
         <mat-card-title>
-          <h3>{{category.name | uppercase}}</h3>
+          <h3>{{member.name | uppercase}} <i>({{member.abbr | uppercase}})</i></h3>
         </mat-card-title>
       </mat-card-header>
-      <img mat-card-image src="{{ baseURL + category.image}}">
+      <img mat-card-image src="{{ baseURL + member.image}}">
       <mat-card-content>
-        <p>{{category.description}}
-        </p>
+        <p>{{member.description}}</p>
+        <p><b>Field of Operation:</b> {{member.field}}</p>
       </mat-card-content>
-      <mat-card-actions>
-        <span class="flex-spacer"></span>
-        <button mat-button [routerLink]="['/exploredetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
-        
-        <button mat-button [routerLink]="['/exploredetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
-      </mat-card-actions>
     </mat-card>
   </div>
 </div>
+
+
 <div class="container" rowHeight="200px" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px">
-  <div *ngIf="category.members" [@visibility]="visibility" [@expand]>
+
+  <div *ngIf="member.papers" [@visibility]="visibility" [@expand]>
     <mat-card>
       <mat-card-header>
         <mat-card-title>
-          <h3>Members ({{category.members.length}})</h3>
+          <h3>Papers ({{member.papers.length}})</h3>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <mat-list>
-          <mat-list-item *ngFor="let members of category.members" [routerLink]="['/memberdetail', members.member._id]">
-              <img mat-list-avatar src="{{ baseURL + members.member.image }}">
-              <h4 matLine> {{members.member.name}}</h4>
-              <span> {{members.member.designation}} </span>
-          </mat-list-item>
-        </mat-list>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div *ngIf="errMess">
-    <h2>Error</h2>
-    <h4>{{errMess}}</h4>
-  </div>
-
-</div>
-
-<div class="container" rowHeight="200px" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px">
-
-  <div *ngIf="category.papers" [@visibility]="visibility" [@expand]>
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          <h3>Papers ({{category.papers.length}})</h3>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-list>
-          <mat-list-item *ngFor="let papers of category.papers" [routerLink]="['/paperdetail', papers.paper._id]">
+          <mat-list-item *ngFor="let papers of member.papers" [routerLink]="['/paperdetail', papers.paper._id]">
               <img mat-list-avatar src="{{ baseURL + papers.paper.image }}">
               <h4 matLine> {{papers.paper.name}}</h4>
               <span> {{papers.paper.description}} </span>
@@ -91,16 +61,16 @@
 </div>
 
 <div class="container" rowHeight="200px" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px">
-  <div *ngIf="category.projects" [@visibility]="visibility" [@expand]>
+  <div *ngIf="member.projects" [@visibility]="visibility" [@expand]>
     <mat-card>
       <mat-card-header>
         <mat-card-title>
-          <h3>Projects ({{category.projects.length}})</h3>
+          <h3>Projects ({{member.projects.length}})</h3>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <mat-list>
-          <mat-list-item *ngFor="let projects of category.projects" [routerLink]="['/projectdetail', projects.project._id]">
+          <mat-list-item *ngFor="let projects of member.projects" [routerLink]="['/projectdetail', projects.project._id]">
               <img mat-list-avatar src="{{ baseURL + projects.project.image }}">
               <h4 matLine> {{projects.project.name}}</h4>
               <span> {{projects.project.designation}} </span>
@@ -117,16 +87,16 @@
 </div>
 
 <div class="container" rowHeight="200px" fxLayout="row" fxLayout.sm="column" fxLayout.xs="column" fxLayoutAlign.gt-md="space-around center" fxLayoutGap="10px">
-  <div *ngIf="category.patents" [@visibility]="visibility" [@expand]>
+  <div *ngIf="member.patents" [@visibility]="visibility" [@expand]>
     <mat-card>
       <mat-card-header>
         <mat-card-title>
-          <h3>Patents ({{category.patents.length}})</h3>
+          <h3>Patents ({{member.patents.length}})</h3>
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <mat-list>
-          <mat-list-item *ngFor="let patents of category.patents" [routerLink]="['/patentdetail', patents.patent._id]">
+          <mat-list-item *ngFor="let patents of member.patents" [routerLink]="['/patentdetail', patents.patent._id]">
               <img mat-list-avatar src="{{ baseURL + patents.patent.image }}">
               <h4 matLine> {{patents.patent.name}}</h4>
               <span> {{patents.patent.designation}} </span>
