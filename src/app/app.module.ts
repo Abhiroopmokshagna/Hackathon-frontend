@@ -49,6 +49,8 @@ import { baseURL } from './shared/baseurl';
 import { HighlightDirective } from './directives/highlight.directive';
 import { FavoritesComponent } from './favorites/favorites.component';
 import {HTTP_INTERCEPTORS} from '@angular/common/http';
+import { ExploreComponent } from './explore/explore.component';
+import { ExploredetailComponent } from './exploredetail/exploredetail.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
     ContactComponent,
     LoginComponent,
     HighlightDirective,
-    FavoritesComponent
+    FavoritesComponent,
+    ExploreComponent,
+    ExploredetailComponent
   ],
   imports: [
     BrowserModule,
