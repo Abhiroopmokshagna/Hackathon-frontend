@@ -18,5 +18,5 @@ export const routes: Routes = [
   { path: 'contactus',     component: ContactComponent },
   { path: 'dishdetail/:id',     component: DishdetailComponent },
   { path: 'explore', component: ExploreComponent},
-  { path: 'expore/category', component: ExploredetailComponent}
+  { path: 'exploredetail/:id', component: ExploredetailComponent}
 ];

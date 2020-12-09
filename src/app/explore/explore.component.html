@@ -11,7 +11,7 @@
 
   <div fxFlex *ngIf="categories" [@expand]>
     <mat-grid-list cols="2" rowHeight="200px">
-      <mat-grid-tile *ngFor="let category of categories" [routerLink]="['/categorydetail', category._id]" appHighlight>
+      <mat-grid-tile *ngFor="let category of categories" [routerLink]="['/exploredetail', category._id]" appHighlight>
         <img height="200px" src="{{ baseURL + category.image}}" alt={{category.name}}>
         <mat-grid-tile-footer>
           <h1 matLine>{{category.name | uppercase}}</h1>
