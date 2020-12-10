@@ -45,4 +45,5 @@ export class PaperdetailComponent implements OnInit {
     errmess => this.errMess = <any>errmess);
   }
 
+
 }

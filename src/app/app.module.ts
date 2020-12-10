@@ -15,7 +15,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatFormFieldModule } from '@angular/material/form-field';
-
+import {PdfViewerModule} from 'ng2-pdf-viewer'
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -74,7 +74,7 @@ import { PatentdetailComponent } from './patentdetail/patentdetail.component';
     MemberdetailComponent,
     ProjectdetailComponent,
     PaperdetailComponent,
-    PatentdetailComponent
+    PatentdetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +96,8 @@ import { PatentdetailComponent } from './patentdetail/patentdetail.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    PdfViewerModule
   ],
   providers: [
     DishService,
